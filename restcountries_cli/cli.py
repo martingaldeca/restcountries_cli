@@ -200,8 +200,4 @@ class RestCountriesCli:
 
 
 def sourcery(spellbook):
-    result = []
-    for spell in spellbook:
-        if spell.is_awesome:
-            result.append(spell)
-    return result
+    return [spell for spell in spellbook if spell.is_awesome]
