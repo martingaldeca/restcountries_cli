@@ -22,8 +22,8 @@ Restcountries_cli Readme
     :target: https://pypi.org/project/restcountries-cli/
     :alt: PyPI
 
-.. image:: https://readthedocs.org/projects/katia/badge/
-    :target: https://katia.readthedocs.io/en/latest/
-    :alt: docs
+.. image:: https://readthedocs.org/projects/restcountries-cli/badge/?version=latest
+    :target: https://restcountries-cli.readthedocs.io/en/latest/?badge=latest
+    :alt: Documentation Status
 
 TODO
