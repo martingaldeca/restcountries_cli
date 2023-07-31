@@ -129,6 +129,7 @@ class RestCountriesCli:
             self.clean_cache_file()
             self.cache_name = uuid.uuid4().hex
             self.session = requests_cache.CachedSession(cache_name=self.cache_name)
+            self.countries = []
 
     def all(self) -> list[Country]:
         """

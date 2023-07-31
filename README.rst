@@ -1,6 +1,6 @@
-============
+========================
 Restcountries_cli Readme
-============
+========================
 
 
 .. image:: https://img.shields.io/badge/code%20style-black-000000.svg
@@ -15,6 +15,10 @@ Restcountries_cli Readme
     :target: https://github.com/astral-sh/ruff
     :alt: Ruff
 
+.. image:: https://img.shields.io/badge/Sourcery-enabled-edb641
+    :target: https://sourcery.ai
+    :alt: Sourcery
+
 .. image:: https://github.com/martingaldeca/restcountries_cli/actions/workflows/linters.yml/badge.svg?event=push
     :target: https://github.com/martingaldeca/restcountries_cli/actions/workflows/linters.yml
     :alt: Linters
@@ -23,7 +27,7 @@ Restcountries_cli Readme
     :target: https://github.com/martingaldeca/restcountries_cli/actions
     :alt: Tests
 
-.. image:: .. image:: https://coveralls.io/repos/github/martingaldeca/restcountries_cli/badge.svg?branch=main
+.. image:: https://coveralls.io/repos/github/martingaldeca/restcountries_cli/badge.svg?branch=main
     :target: https://coveralls.io/github/martingaldeca/restcountries_cli?branch=main
     :alt: Coverage
 
@@ -42,3 +46,11 @@ Restcountries_cli Readme
 .. image:: https://img.shields.io/badge/license-MIT-202235.svg?logo=python
     :target: https://spdx.org/licenses/
     :alt: License
+
+Restcountries cli is a python client to encapsulate the calls to restcountries API.
+
+The main difference with other restcountries clients is that the calls are cached.
+
+Also all the countries are returned as pydantic models, so the data navigation is easier.
+
+Yo can check the code in `GitHub <https://github.com/martingaldeca/restcountries_cli>`_ or follow the `official documentation <https://restcountries-cli.readthedocs.io/en/latest/>`_.
