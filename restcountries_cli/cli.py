@@ -197,7 +197,3 @@ class RestCountriesCli:
                 raise APIException(
                     f"url {self.url}/{self.name_endpoint} returned unexpected code " f"'{response.status_code}'"
                 )
-
-
-def sourcery(spellbook):
-    return [spell for spell in spellbook if spell.is_awesome]
