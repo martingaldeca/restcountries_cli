@@ -1,0 +1,125 @@
+[tool.poetry]
+name = "restcountries_cli"
+version = "0.0.0"
+description = "Client for rest countries API to acces data"
+authors = ["martingaldeca <martingaldeca@gmail.com>"]
+maintainers = ["martingaldeca <martingaldeca@gmail.com>"]
+readme = "README.rst"
+keywords = ["restcountries", "country", "countries", "data", "api"]
+classifiers = [
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Software Development",
+    "Topic :: Utilities",
+    "Typing :: Typed",
+]
+license = "MIT"
+packages = [{ include = "restcountries_cli" }]
+
+[tool.poetry.dependencies]
+python = ">=3.11,<4.0.0"
+pydantic = "2.1.1"
+requests-cache = "1.1.0"
+
+[tool.poetry.group.test]
+optional = true
+
+[tool.poetry.group.test.dependencies]
+pytest = "7.4.0"
+pytest-xdist = "3.3.1"
+pytest-cov = "4.1.0"
+ipdb = "0.13.13"
+factory-boy = "3.3.0"
+responses = "0.23.2"
+
+[tool.poetry.group.autohooks]
+optional = true
+
+[tool.poetry.group.autohooks.dependencies]
+autohooks = ">=23.4.0"
+autohooks-plugin-isort = "23.4.0"
+autohooks-plugin-black = "23.4.0"
+autohooks-plugin-pylint = "23.4.0"
+autohooks-plugin-ruff = "23.6.1"
+#
+[tool.poetry.group.local]
+optional = true
+
+[tool.poetry.group.local.dependencies]
+ipython = "8.14.0"
+
+[tool.poetry.group.docs]
+optional = true
+
+[tool.poetry.group.docs.dependencies]
+sphinx = "7.1.1"
+sphinx-copybutton = "0.5.2"
+furo = "2023.7.26"
+
+[tool.poetry.group.lint]
+optional = true
+
+[tool.poetry.group.lint.dependencies]
+ruff = '0.0.280'
+mypy = "1.4.1"
+pylint = "2.17.5"
+
+[tool.poetry.group.formatting]
+optional = true
+
+[tool.poetry.group.formatting.dependencies]
+black = "23.7.0"
+blacken-docs = "1.15.0"
+isort = "5.12.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pylint]
+max-line-length = 120
+disable = ["C0325", "C0114", "R0902"]
+ignore-paths = ["restcountries_cli/factories.py", ]  # Factories not needed to run pylint
+
+[tool.black]
+line-length = 120
+
+[tool.isort]
+skip = "__init__.py"
+src_paths = ["restcountries_cli", "tests"]
+
+[tool.coverage.run]
+relative_files = true
+omit = ["*/tests/*"]
+
+[tool.ruff]
+line-length = 120
+src = ["restcountries_cli", "tests", "docs/examples"]
+target-version = "py311"
+
+[tool.ruff.pydocstyle]
+convention = "google"
+
+[tool.ruff.isort]
+known-first-party = ["restcountries_cli", "tests"]
+
+[tool.mypy]
+plugins = "pydantic.mypy"
+warn_unused_ignores = true
+warn_redundant_casts = true
+warn_unused_configs = true
+warn_unreachable = true
+warn_return_any = true
+strict = false
+disallow_untyped_decorators = true
+disallow_any_generics = false
+implicit_reexport = false
+show_error_codes = true
+ignore_missing_imports = true
+
+[tool.autohooks]
+mode = "poetry"
+pre-commit = ["autohooks.plugins.isort", "autohooks.plugins.black", "autohooks.plugins.pylint", "autohooks.plugins.ruff"]

@@ -1,0 +1,34 @@
+name: tests
+on: push
+permissions:
+  contents: read
+
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: 3.11
+      - name: Configure poetry
+        uses: abatilo/actions-poetry@v2
+        run: |
+          python -m poetry config virtualenvs.in-project true
+      - name: Cache the virtualenv
+        uses: actions/cache@v2
+        with:
+          path: ./.venv
+          key: ${{ runner.os }}-venv-${{ hashFiles('**/poetry.lock') }}
+      - name: Install dependencies
+        run: |
+          poetry install --with test
+      - name: Run tests
+        run: |
+          poetry run pytest -n auto --cov=restcountries_cli --cov-report lcov
+      - name: Coveralls
+        uses: coverallsapp/github-action@v2
+        with:
+          path-to-lcov: "./coverage.lcov"

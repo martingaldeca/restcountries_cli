@@ -1,0 +1,27 @@
+name: publish
+on:
+  release:
+    types: [published]
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    strategy:
+      fail-fast: false
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: 3.11
+      - name: Configure poetry
+        uses: abatilo/actions-poetry@v2
+        run: |
+          python -m poetry config virtualenvs.in-project true
+      - name: Add token
+        run: |
+          poetry config pypi-token.pypi ${{ secrets.PYPI_TOKEN }}
+      - name: Publish project
+        run: |
+          poetry publish --build

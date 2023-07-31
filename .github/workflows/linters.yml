@@ -1,0 +1,29 @@
+name: linters
+on: push
+permissions:
+  contents: read
+
+jobs:
+  linters:
+    strategy:
+      fail-fast: false
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: 3.11
+      - name: Install dependencies
+        uses: abatilo/actions-poetry@v2
+        run: |
+          poetry install --with lint
+      - name: Run ruff
+        run: |
+          ruff check .
+      - name: Run pylint
+        run: |
+          pylint --fail-under=8 restcountries_cli
+      - name: Run pylint
+        run: |
+          mypy restcountries_cli
+
