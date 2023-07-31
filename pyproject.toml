@@ -18,6 +18,7 @@ classifiers = [
 ]
 license = "MIT"
 packages = [{ include = "restcountries_cli" }]
+repository = "https://github.com/martingaldeca/restcountries_cli"
 
 [tool.poetry.dependencies]
 python = ">=3.11,<4.0.0"
