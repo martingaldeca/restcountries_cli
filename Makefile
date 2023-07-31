@@ -36,6 +36,8 @@ linters: ruff pylint mypy
 # Local dev
 ipython:
 	ipython --InteractiveShellApp.exec_lines "['%autoreload 2', 'from restcountries_cli.factories import *', 'from restcountries_cli.cli import *']" --InteractiveShellApp.extensions autoreload
+autohooks:
+	poetry run autohooks activate --mode poetry
 
 # Testing
 test:

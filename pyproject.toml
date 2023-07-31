@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "restcountries_cli"
-version = "0.0.0"
+version = "0.0.1"
 description = "Client for rest countries API to access data"
 authors = ["martingaldeca <martingaldeca@gmail.com>"]
 maintainers = ["martingaldeca <martingaldeca@gmail.com>"]
@@ -21,7 +21,7 @@ packages = [{ include = "restcountries_cli" }]
 repository = "https://github.com/martingaldeca/restcountries_cli"
 
 [tool.poetry.dependencies]
-python = ">=3.11,<4.0.0"
+python = ">=3.9,<4.0.0"
 pydantic = "2.1.1"
 requests-cache = "1.1.0"
 
@@ -100,6 +100,9 @@ omit = ["*/tests/*"]
 line-length = 120
 src = ["restcountries_cli", "tests", "docs/examples"]
 target-version = "py311"
+
+[tool.ruff.per-file-ignores]
+"__init__.py" = ["F401", "F403"]
 
 [tool.ruff.pydocstyle]
 convention = "google"
