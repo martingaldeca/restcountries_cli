@@ -1,3 +1,4 @@
+# pylint: skip-file
 import sys
 from os.path import abspath, dirname
 
@@ -19,7 +20,7 @@ extensions = [
     "sphinx.ext.napoleon",
     "sphinx.ext.viewcode",
     "sphinx.ext.extlinks",
-    'sphinx_copybutton',
+    "sphinx_copybutton",
     "sphinx.ext.autosectionlabel",
 ]
 autosectionlabel_prefix_document = True
