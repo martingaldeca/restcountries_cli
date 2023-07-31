@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "restcountries_cli"
 version = "0.0.0"
-description = "Client for rest countries API to acces data"
+description = "Client for rest countries API to access data"
 authors = ["martingaldeca <martingaldeca@gmail.com>"]
 maintainers = ["martingaldeca <martingaldeca@gmail.com>"]
 readme = "README.rst"
